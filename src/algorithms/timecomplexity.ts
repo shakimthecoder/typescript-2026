@@ -12,3 +12,16 @@ const logNums = (nums: number[]) => {
     console.log(nums[i])
   }
 }
+
+// Quadratic time O(n^2)
+// We are going to write a function that returns all possible pairs,
+// given an input array
+
+// [1, 2, 3] = 1,1 1,2 1,3 2,1 2,2 2,3 3,1, 3,2, 3,3 e.g.
+const numPairs = (nums: number[]) => {
+   for(let i=0; i < nums.length; i++){
+    for(let j=0; j < nums.length; j++){
+        console.log(i, j);
+    }
+   }
+}
