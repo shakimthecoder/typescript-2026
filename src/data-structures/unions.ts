@@ -21,15 +21,18 @@ export function calculateApiCost(numReqs: number, tier?: string){
 }
 
 export function estimateResponseTime(promptLength = 100, modelType = "text"){
+    let baseNumber = 0;
+    let rateNumber = 0;
     if(modelType === "text"){
-        return 2 + 0.01 * promptLength;
+        baseNumber = 5;
+        rateNumber = 0.01;
+    } else if(modelType === "image"){
+       baseNumber = 3;
+       rateNumber= 0.02;
+    } else if(modelType === "code"){
+        baseNumber = 7;
+        rateNumber = 0.03
     }
-    if(modelType === "image"){
-        return 5 + 0.02 * promptLength;
-    }
-    if(modelType === "code"){
-        return 3 + 0.05 * promptLength;
-    }
-     return 0;
+    return Math.round(baseNumber + rateNumber * promptLength);
 }
 
