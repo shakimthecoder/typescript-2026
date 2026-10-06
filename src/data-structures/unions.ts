@@ -20,3 +20,16 @@ export function calculateApiCost(numReqs: number, tier?: string){
     return numReqs * 0.1;
 }
 
+export function estimateResponseTime(promptLength = 100, modelType = "text"){
+    if(modelType === "text"){
+        return 2 + 0.01 * promptLength;
+    }
+    if(modelType === "image"){
+        return 5 + 0.02 * promptLength;
+    }
+    if(modelType === "code"){
+        return 3 + 0.05 * promptLength;
+    }
+     return 0;
+}
+
