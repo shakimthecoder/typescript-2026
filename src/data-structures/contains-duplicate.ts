@@ -6,6 +6,7 @@ function containsDuplicate(nums: number[]): boolean {
     type Tally = {
         [num: number]: number
     }
+//This creates a map but there is an inbuilt Map data structure type we can use to make this simpler
 
     const tally: Tally = {};
     for(let num of nums){
