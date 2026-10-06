@@ -13,3 +13,11 @@ export function formatLabels(...labels: string[]){
     if(labels.length === 1) return `Label ${labels[0]}`
     return `Labels ${labels.join(", ")}`
 }
+
+export function collectSupportData(id: number, resolved: boolean){
+    const supportData = [];
+    supportData.push("Support session started");
+    supportData.push(id);
+    supportData.push(resolved);
+    return supportData;
+}
