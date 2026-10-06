@@ -36,3 +36,28 @@ export function estimateResponseTime(promptLength = 100, modelType = "text"){
     return Math.round(baseNumber + rateNumber * promptLength);
 }
 
+export type Priority = "low" | "medium" | "high" | "urgent";
+
+export function setPriority(level: Priority){
+  switch(level) {
+    case "low":
+     return 0
+    case "medium":
+        return 1
+    case "high":
+        return 2
+    case "urgent":
+        return 3
+    default: 
+    return 0;
+  }
+}
+// Super Set Unions
+
+type EmploymentStatus = "employed" | "unemployed" | "student" | string;
+
+updateEmploymentStatus("Shakim is contracting");
+
+export function updateEmploymentStatus(status: EmploymentStatus){
+    return `Employment status updated: ${status}`;
+}
